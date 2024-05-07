@@ -148,6 +148,7 @@ class Score:
         """
         self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
         self.sco = 0
+        self.img = self.fonto.render(f"スコア:{self.sco}", 0, (0, 0, 255))
     
     def update(self, screen: pg.Surface):
         """
