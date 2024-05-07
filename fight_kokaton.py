@@ -147,15 +147,15 @@ class Score:
         スコアの初期値の設定
         """
         self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
-        self.sco = 0
-        self.img = self.fonto.render(f"スコア:{self.sco}", 0, (0, 0, 255))
+        self.value = 0
+        self.img = self.fonto.render(f"スコア:{self.value}", 0, (0, 0, 255))
     
     def update(self, screen: pg.Surface):
         """
         文字列を表示させる
         引数 screen：画面Surface
         """
-        self.img = self.fonto.render(f"スコア:{self.sco}", 0, (0, 0, 255))
+        self.img = self.fonto.render(f"スコア:{self.value}", 0, (0, 0, 255))
         screen.blit(self.img, [100, HEIGHT-50])
 
 
@@ -196,7 +196,7 @@ def main():
                     beams[j] = None
                     bombs[i] = None
                     bird.change_img(6, screen)
-                    score.sco += 1  # 爆弾が当たったときにスコアアップさせている
+                    score.value += 1  # 爆弾が当たったときにスコアアップさせている
                     pg.display.update()
             bombs = [bomb for bomb in bombs if bomb is not None]
             beams = [beam for beam in beams if beam is not None]
